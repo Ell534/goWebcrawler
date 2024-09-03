@@ -21,6 +21,11 @@ func TestNormalizeURL(t *testing.T) {
 			inputURL: "https://blog.boot.dev/path?filter=name",
 			expected: "blog.boot.dev/path",
 		},
+		{
+			name:     "remove trailing slash",
+			inputURL: "https://blog.boot.dev/path/",
+			expected: "blog.boot.dev/path",
+		},
 		// add more tests here
 	}
 
