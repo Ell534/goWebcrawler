@@ -21,8 +21,4 @@ func main() {
 	rawBaseURL := os.Args[1]
 
 	fmt.Printf("starting crawl of: %s", rawBaseURL)
-
-	// if len(os.Args) == 2 {
-	// 	fmt.Printf("starting crawl of: %s", os.Args[1])
-	// }
 }
