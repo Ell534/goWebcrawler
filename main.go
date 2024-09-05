@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 )
 
@@ -21,4 +22,11 @@ func main() {
 	rawBaseURL := os.Args[1]
 
 	fmt.Printf("starting crawl of: %s", rawBaseURL)
+
+	html, err := getHTML(rawBaseURL)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(html)
 }
