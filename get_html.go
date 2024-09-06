@@ -13,6 +13,8 @@ func getHTML(rawURL string) (string, error) {
 		return "", fmt.Errorf("error executing http GET request to %s: %w", rawURL, err)
 	}
 
+	defer res.Body.Close()
+
 	if res.StatusCode > 399 {
 		return "", fmt.Errorf("error level status code from http response: %d", res.StatusCode)
 	}
@@ -23,8 +25,6 @@ func getHTML(rawURL string) (string, error) {
 	}
 
 	html, err := io.ReadAll(res.Body)
-
-	defer res.Body.Close()
 	if err != nil {
 		return "", fmt.Errorf("error reading response body: %w", err)
 	}
