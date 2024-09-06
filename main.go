@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"log"
+	// "log"
 	"os"
 )
 
@@ -21,12 +21,18 @@ func main() {
 
 	rawBaseURL := os.Args[1]
 
-	fmt.Printf("starting crawl of: %s", rawBaseURL)
+	fmt.Printf("starting crawl of: %s\n", rawBaseURL)
 
-	html, err := getHTML(rawBaseURL)
-	if err != nil {
-		log.Fatal(err)
+	// html, err := getHTML(rawBaseURL)
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+	//
+	// fmt.Println(html)
+
+	pagesMap := crawlPage(rawBaseURL, rawBaseURL, map[string]int{})
+
+	for key, value := range pagesMap {
+		fmt.Printf("Key: %s\nValue: %d\n", key, value)
 	}
-
-	fmt.Println(html)
 }
