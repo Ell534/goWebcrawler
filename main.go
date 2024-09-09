@@ -63,4 +63,6 @@ func main() {
 	for key, value := range crawlConfig.pages {
 		fmt.Printf("Key: %s\nValue: %d\n", key, value)
 	}
+
+	printReport(crawlConfig.pages, rawBaseURL)
 }
